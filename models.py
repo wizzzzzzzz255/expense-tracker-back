@@ -7,6 +7,7 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True, nullable=False)
     password_hash = Column(String, nullable=False)
+    currency = Column(String, default="USD", server_default="USD")
 
 class Category(Base):
     __tablename__ = "categories"
