@@ -8,6 +8,7 @@ class UserBase(BaseModel):
 
 class UserCreate(UserBase):
     password: str
+    currency: str = "USD"
 
     @validator("password")
     def validate_password(cls, v):
@@ -28,6 +29,7 @@ class UserCreate(UserBase):
 
 class UserOut(UserBase):
     id: int
+    currency: str
     class Config:
         orm_mode = True
 
