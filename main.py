@@ -11,7 +11,11 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # For development, we allow all origins. In production, this should be the Vercel URL.
+    allow_origins=[
+        "http://localhost:3000", 
+        "https://expense-tracker-front-three.vercel.app", 
+        "*"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -24,4 +28,5 @@ app.include_router(categories.router)
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the Expense Tracker API!"}
+
 
